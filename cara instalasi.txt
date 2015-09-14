@@ -1,0 +1,27 @@
+# Tata Cara Instalasi (Wedus gak ada, Linux aja) #
+
+ 1. install web server dulu (entah itu Nginx, lite speed, httpd, apache) dan PHP 5.4
+ 
+ 2. pertama install dulu unzip dan extract zipnya di root web server kalian (misal root Nginx(/usr/share/nginx/www))
+ 
+	*Install unzip*
+	@ Debian dan turunannya
+	- sudo apt-get install unzip
+ 
+	@ Redhat dan turunannya 
+	- yum install unzip
+	
+ 3. jika VPS kalian pakai Turunannya Debian (aka Ubuntu, Blankon, KALI linux)
+	langsung panggil aja ./install.sh << auto installer
+	atau pergi ke https://trac.ffmpeg.org/wiki/CompilationGuide << (Untuk turunannya Redhat juga)
+		
+ 4. hapus install.sh di root web server kalian
+
+ 5. Pergi ke IPkalian/install.php 
+ 
+ 6. isi penempatan ffmpeg kalian (kalau yang makai auto installer, isi /home/bin/ffmpeg dan /home/bin10bit/ffmpeg) dan isi user dan pass kesukaan kalian.
+ 
+ 7. kalau kurang jelas bisa di tanyakan ke FB ini (PM only dgn hastag #tanya) https://www.facebook.com/master.hikuga
+ 
+ untuk yang OS linuxnya selain debian dan turunannya. compile FFMPEG 10 bit cuma compile X264 dgn bit depth 10 dan ffmpeg doang
+ 
