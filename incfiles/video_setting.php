@@ -22,7 +22,7 @@ if (isset($_POST['step2'])) {
 	$endlevel = in_array($_POST['end-level'], $endlevelallow)? $_POST['end-level'] : '';
 	$endmode = in_array($_POST['end-mode'], $endmodeallow)? $_POST['end-mode'] : '';
 	$endpresentlabel = strtolower(in_array($_POST['end-present-label'], $endpresentlabelallow)? $_POST['end-present-label'] : '');
-	$endrate = intval(isset($_POST['end-rate'])? $_POST['end-rate'] : '0');
+	$endrate = !empty($_POST['end-rate']? $_POST['end-rate'] : '0');
 	
 	//security POST
 	if (empty($endtune) || empty($endprofile) || empty($endlevel) || empty($endmode) || empty($endpresentlabel) || empty($endrate) || $endrate < 0) {

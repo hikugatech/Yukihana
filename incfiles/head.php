@@ -10,8 +10,8 @@ if (file_exists('incfiles/core.php')){
 if (empty($_SESSION['user_login']) || empty($_SESSION['pass_login']) || $_SESSION['pass_login'] != $pass || $_SESSION['user_login'] != $user){
 	
 	if (isset($_POST['log-in'])){
-		$username = $_POST['user'];
-		$password = $_POST['pass'];
+		$username = check($_POST['user']);
+		$password = check($_POST['pass']);
 		
 		if (empty($username) || empty($password) || md5($password) != $pass || md5($username) != $user) {
 			echo 'login Failed';
@@ -58,7 +58,33 @@ echo'<!DOCTYPE html>' .
 	
 
 echo '<div class="header">';
-echo '<div class="one"><div class="two" style="float : left;font-weight: bold;"><a href="'.$site.'">Encoder</a> </div><div class="two" style="margin-right:20px;">&nbsp;&nbsp;<a href="'.$site.'/setting.php">Setting</a></div><div class="two">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="'.$site.'/manager.php" style="margin-right:20px;">File Manager</a></div></div>';
+echo '<div class="one"><div class="two" style="float : left;font-weight: bold;"><a href="'.$site.'">Yukihana</a> </div><div class="two" style="margin-right:20px;">&nbsp;&nbsp;<a href="'.$site.'setting.php">Setting</a></div><div class="two">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="'.$site.'manager.php" style="margin-right:20px;">File Manager</a></div></div>';
 echo '</div>'; 
 echo '<div class="maintxt">';
+
+
+
+function checkin($str) {
+	if (function_exists('iconv')) {
+		$str = iconv("UTF-8", "UTF-8", $str);
+	}
+
+	// Фильтруем невидимые символы
+	$str = preg_replace('/[^\P{C}\n]+/u', '', $str);
+	return trim($str);
+}
+function check($str){
+	$str = htmlspecialchars(trim($str), ENT_QUOTES | ENT_IGNORE, 'UTF-8'); 
+	$str = htmlentities(trim($str), ENT_QUOTES | ENT_IGNORE, 'UTF-8');
+	$str = checkin($str);
+	$str = nl2br($str);
+	$str = addslashes($str);
+	$str = stripslashes($str);
+	
+	return $str;
+}
+
+
+
+
 ?>

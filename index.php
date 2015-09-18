@@ -2,26 +2,26 @@
 $title = 'encoder | Upload';
 require_once ('incfiles/head.php');
 
+
 echo '<div class="phdr"> Upload file </div>';
 echo '<div class="div-div">';
 echo '<div class="gmenu">Allowed Video files</div>';
 echo '<form id="upload_form" enctype="multipart/form-data" method="post">';
-echo '  <input type="file" name="file" id="file1"><br>';
-echo '  <input type="submit" value="Upload File" onclick="uploadFile()"><br />';
-echo '</form>';
-echo '<br /><div class="phdr"> Upload file </div>';
+echo	'<input type="file" name="file1" id="file1"><br>';
+echo	'<input type="button" value="Upload File" onclick="uploadFile()">';
+echo'</form>';
+echo '<div class="phdr"> Status Upload </div>';
 echo '<div class="div-div">';
-echo 'Progress : <br />';
-echo '  <progress id="progressBar" value="0" max="100" style="width:300px;"></progress>';
-echo '  <h3 id="status"></h3>';
-echo '  <p id="loaded_n_total"></p>';
+echo	'<progress id="progressBar" value="0" max="100" style="width:300px;"></progress>';
+echo	'<h3 id="status"></h3>';
+echo	'<p id="loaded_n_total"></p>';
 echo '</div></div>';
 
 
 
 echo '<div class="phdr"> Remote Upload </div>';
 echo '<div class="div-div">';
-echo '<input type="url" id="link" placeholder="http://" />';
+echo '<input type="text" id="link" placeholder="http://" />';
 echo '<input type="submit" value="Download" onclick="download_c()">';
 echo '<div id="status-curl"> </div>';
 echo '</div>';
@@ -84,9 +84,7 @@ function progressHandler(event){
 	_("status").innerHTML = Math.round(percent)+"% uploaded... please wait";
 }
 function completeHandler(event){
-	if (event.target.responseText != false){
 	_("status").innerHTML = event.target.responseText;
-	}
 	_("progressBar").value = 0;
 }
 function errorHandler(event){
@@ -96,8 +94,6 @@ function abortHandler(event){
 	_("status").innerHTML = "Upload Aborted";
 }
 </script>
-
-<script src="incfiles/jquery.min.js"></script>
 <script type="text/javascript">
 
 

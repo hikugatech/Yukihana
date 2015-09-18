@@ -16,18 +16,16 @@ if (isset($_POST['verify'])) {
 		$input .= '$user = "'.$user.'";';
 		$input .= '$pass = "'.$pass.'"; ?>';
 		
-		chmod("incfiles", 777);
-		chmod("cache", 777);
-		chmod("upload", 777);
+		@chmod("incfiles", 777);
+		@chmod("cache", 777);
+		@chmod("upload", 777);
 		file_put_contents('incfiles/core.php', $input);
-		chmod("incfiles", 755);
-		unlink('install.php');
+		@chmod("incfiles", 755);
+		@unlink('install.php');
 		header('location: index.php');
 	}
 	echo 'anu';
 }
-
-
 echo '<form action="" method="POST">';
 echo 'Please input Here';
 echo '<div> Location FFMPEG (linux directory) : <br />';
