@@ -1,1 +1,0 @@
-<?php $ffmpeg = "/home/bin/ffmpeg";$ffmpeg10bit = "/home/bin10bit/ffmpeg";$site = "http://127.0.0.1/encoder";$user = "a63ff077b127532903b2e8dda935ea57";$pass = "a63ff077b127532903b2e8dda935ea57"; ?>
