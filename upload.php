@@ -5,6 +5,7 @@ set_time_limit(0);
 if(isset($_POST['curl'])){
 
 $curl = addslashes($_POST['curl']);
+$curl = str_replace('https', 'http', $curl);
 $anu = explode('/', $curl);
 $count = count($anu)-1;
  
@@ -43,11 +44,11 @@ if (!in_array($cek[$hit], $allowext)) {
 
 if (isset($contentLength)) {
 file_put_contents('cache/downtarget.txt', ''.$contentLength.'+'.$namefile.'+');
-if (file_exists("../upload/$namefile")){
-unlink("../upload/$namefile");
-file_put_contents("../upload/$namefile", fopen("$curl", 'r'));
+if (file_exists("upload/$namefile")){
+unlink("upload/$namefile");
+file_put_contents("upload/$namefile", fopen("$curl", 'r'));
 } else {
-file_put_contents("../upload/$namefile", fopen("$curl", 'r'));
+file_put_contents("upload/$namefile", fopen("$curl", 'r'));
 }
 }
 }
