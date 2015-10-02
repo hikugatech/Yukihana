@@ -19,7 +19,7 @@ if (isset($_POST['verify'])) {
 		@chmod("incfiles", 777);
 		@chmod("cache", 777);
 		@chmod("upload", 777);
-		file_put_contents('incfiles/core.php', $input);
+		@file_put_contents('incfiles/core.php', $input);
 		@chmod("incfiles", 755);
 		@unlink('install.php');
 		header('location: index.php');

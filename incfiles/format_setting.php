@@ -47,12 +47,12 @@
 	echo '</div>';
 	echo '</div>';
 	echo '<div class="xdiv">';
-	echo '<input type="checkbox" name="end-change-ratio" id="end-change-ratio" value="1" /> Ganti resolusi';
+	echo '<input type="checkbox" name="end-change-ratio" id="end-change-ratio" value="1" /> Ganti ratio';
 	echo '<div id="end-change-ratio-display">';
 	echo '<select name="end-change-ratio-rate">';
 		echo '<option value="16:9">16:9</option>';
 		echo '<option value="4:3">4:3</option>';
-	echo '</select>';
+	echo '</select>'; 
 	echo '</div>';
 	echo '</div>';
 	echo '<button href="#" onclick="javascript:document.keok.submit();">NEXT >> </button>';
